@@ -13,6 +13,7 @@ import Alamofire
 class AFWrapperTests: XCTestCase {
 
     var json: AnyObject?
+    var books: [Books]?
 
     override func setUp() {
         super.setUp()
@@ -28,7 +29,7 @@ class AFWrapperTests: XCTestCase {
         let asyncExpectation = expectationWithDescription("longRunning")
 
         AFWrapper.getJSONFromAPI {
-            (dict : AnyObject) in
+            (dict : Dictionary<String,AnyObject>) in
                 self.json = dict
             
             asyncExpectation.fulfill()
@@ -36,6 +37,20 @@ class AFWrapperTests: XCTestCase {
 
         self.waitForExpectationsWithTimeout(5) { error in
             XCTAssertNotNil(self.json)
+        }
+    }
+
+    func testGetBooksFromJSON() {
+
+        let asyncExpectation = expectationWithDescription("asyncOperationToClosure")
+
+        AFWrapper.getJSONFromAPI { (dict: Dictionary<String,AnyObject>) in
+           self.books = Books.booksFromJSON(dict)
+            asyncExpectation.fulfill()
+        }
+
+        self.waitForExpectationsWithTimeout(5) { error in
+            XCTAssert(self.books?.count > 0)
         }
     }
 }
