@@ -8,10 +8,12 @@
 
 import XCTest
 import Alamofire
-import PracticeApp
+@testable import PracticeApp
 
 class AFWrapperTests: XCTestCase {
-    
+
+    var json: AnyObject?
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,6 +25,17 @@ class AFWrapperTests: XCTestCase {
     }
 
     func testGetJSONFromAPI() {
-        
+        let asyncExpectation = expectationWithDescription("longRunning")
+
+        AFWrapper.getJSONFromAPI {
+            (dict : AnyObject) in
+                self.json = dict
+            
+            asyncExpectation.fulfill()
+        }
+
+        self.waitForExpectationsWithTimeout(5) { error in
+            XCTAssertNotNil(self.json)
+        }
     }
 }

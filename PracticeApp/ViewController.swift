@@ -9,13 +9,15 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,NYTTableViewDelegate {
+    @IBOutlet weak var imageOfLastViewed: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        AFWrapper.getJSONFromAPI { (dict) -> Void in
-            print(dict as! Dictionary)
+
+        AFWrapper.getJSONFromAPI {
+            (dict : AnyObject) in
+                print(dict)
         }
     }
 
@@ -24,6 +26,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func viewBooks(sender: UIButton) {
+
+        let tableView = self.storyboard?.instantiateViewControllerWithIdentifier("BooksTableView") as! NYTTableViewController
+
+        tableView.delegate = self
+
+        self.navigationController?.pushViewController(tableView, animated: true)
+
+    }
+
+    func didViewBookWithImage(img: UIImage) {
+        self.imageOfLastViewed.image = img
+    }
 
 }
 

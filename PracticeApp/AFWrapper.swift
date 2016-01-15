@@ -11,9 +11,9 @@ import Alamofire
 
 class AFWrapper: NSObject {
 
-    class func getJSONFromAPI(closure: (dict:AnyObject) -> Void){
+    class func getJSONFromAPI(closure: (dict : NSMutableDictionary) -> Void){
         Alamofire.request(.GET, RequestString).responseJSON { response in
-            closure(dict: response.result.value!)
+            closure(dict: response.result.value as! NSMutableDictionary)
         }
     }
     
