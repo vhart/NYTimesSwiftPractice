@@ -8,7 +8,7 @@
 
 import XCTest
 import Alamofire
-import PracticeApp
+@testable import PracticeApp
 
 class AFWrapperTests: XCTestCase {
     
@@ -23,6 +23,9 @@ class AFWrapperTests: XCTestCase {
     }
 
     func testGetJSONFromAPI() {
-        
+        AFWrapper.getJSONFromAPI {
+            (dict: AnyObject) in
+            <#code#>
+        }
     }
 }

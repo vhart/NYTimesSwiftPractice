@@ -14,9 +14,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        AFWrapper.getJSONFromAPI { (dict) -> Void in
-            print(dict as! Dictionary)
+        AFWrapper.getJSONFromAPI {
+            (dict: AnyObject) in
+            print(dict)
         }
+        
+        AFWrapper.getJSONFromAPI({
+            (dict: AnyObject) in
+            print(dict)
+        })
     }
 
     override func didReceiveMemoryWarning() {

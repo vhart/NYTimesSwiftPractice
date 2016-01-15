@@ -10,9 +10,13 @@ import UIKit
 import Alamofire
 
 class AFWrapper: NSObject {
-
+    override init() {
+        super.init()
+    }
+    
     class func getJSONFromAPI(closure: (dict:AnyObject) -> Void){
-        Alamofire.request(.GET, RequestString).responseJSON { response in
+        Alamofire.request(.GET, RequestString).responseJSON {
+            response in
             closure(dict: response.result.value!)
         }
     }
