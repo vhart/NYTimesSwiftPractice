@@ -14,25 +14,32 @@ class Books{
     let author : String
     var imageUrl : String? = nil
 
-    class func booksFromJSON(json: AnyObject) -> [Books] {
+    class func booksFromJSON(json: Dictionary<String,AnyObject>) -> [Books] {
 
         var books = [Books]()
 
-        let jsonBookResults = (json["results"]!)?["books"]!
+        if let result = json["results"] as? Dictionary<String,AnyObject> {
 
-        for dict in Array(arrayLiteral: jsonBookResults) {
+            if let booksFromResults = result["books"] as? [AnyObject] {
 
-            let bookTitle = dict?["title"] as! String
-            let bookAuthor = dict?["author"] as! String
+                for i in 0..<booksFromResults.count {
 
-            let url = dict?["book_image"] as! String
+                   if let dict = booksFromResults[i] as? Dictionary<String,AnyObject> {
+                    let bookTitle = dict["title"] as! String
 
-            books.append(Books.init(title: bookTitle, author: bookAuthor, url: url))
+                    let bookAuthor = dict["author"] as! String
+
+                    let url = dict["book_image"] as! String
+
+                    books.append(Books.init(title: bookTitle, author: bookAuthor, url: url))
+                    }
+
+                }
+
+            }
 
         }
-
         return books
-
     }
 
     init(title: String, author: String, url: String?) {

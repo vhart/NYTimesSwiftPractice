@@ -9,14 +9,16 @@
 import UIKit
 
 
-class ViewController: UIViewController,NYTTableViewDelegate {
+class ViewController: UIViewController, NYTTableViewDelegate {
     @IBOutlet weak var imageOfLastViewed: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "NYTBestSellerApp"
+
         AFWrapper.getJSONFromAPI {
-            (dict : AnyObject) in
+            (dict : Dictionary<String, AnyObject>) in
                 print(dict)
         }
     }

@@ -21,7 +21,10 @@ class NYTTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AFWrapper.getJSONFromAPI { (dict: AnyObject) in
+
+        self.title = "NYT Best Sellers: Fiction"
+
+        AFWrapper.getJSONFromAPI { (dict: Dictionary<String, AnyObject>) in
             self.bestSeller = Books.booksFromJSON(dict)
             self.tableView.reloadData()
         }
@@ -64,6 +67,7 @@ class NYTTableViewController: UITableViewController {
         book.getImageForBook { (image :UIImage?) in
             if image != nil {
                 NSNotificationCenter.defaultCenter().postNotificationName("ImageLoadedNotification", object: image)
+                self.delegate?.didViewBookWithImage(image!)
             }
         }
 

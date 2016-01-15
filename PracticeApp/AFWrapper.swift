@@ -11,12 +11,13 @@ import Alamofire
 
 class AFWrapper: NSObject {
 
-    class func getJSONFromAPI(closure: (dict : NSMutableDictionary) -> Void){
+    class func getJSONFromAPI(closure: (dict : Dictionary<String, AnyObject>) -> Void){
         Alamofire.request(.GET, RequestString).responseJSON { response in
-            closure(dict: response.result.value as! NSMutableDictionary)
+            if let json = response.result.value as? Dictionary<String, AnyObject> {
+                closure(dict: json)
+            }
         }
     }
-    
 }
 
 let BooksKey = "d25345a707f551c6d74e24e9b96391da:8:74017814"

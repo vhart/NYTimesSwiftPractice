@@ -14,12 +14,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="AXy-kW-sxT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" textLabel="PYA-MH-bF8" detailTextLabel="3R5-D2-j27" style="IBUITableViewCellStyleSubtitle" id="AXy-kW-sxT">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AXy-kW-sxT" id="9yp-3b-SGP">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PYA-MH-bF8">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3R5-D2-j27">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -100,11 +116,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qfm-XU-SqZ">
-                                <rect key="frame" x="233" y="123" width="135" height="200"/>
+                                <rect key="frame" x="0.0" y="123" width="600" height="389"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="ggR-0f-whD"/>
                                     <constraint firstAttribute="height" constant="200" id="kA9-4S-R8m"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ggR-0f-whD"/>
+                                        <exclude reference="kA9-4S-R8m"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xow-Wp-Z9e">
                                 <rect key="frame" x="279" y="520" width="43" height="30"/>
@@ -120,9 +142,17 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xow-Wp-Z9e" secondAttribute="bottom" constant="50" id="Q5Y-3C-BFa"/>
                             <constraint firstItem="Qfm-XU-SqZ" firstAttribute="top" secondItem="ADK-bO-xni" secondAttribute="bottom" constant="8" id="RwP-cP-ulZ"/>
                             <constraint firstItem="xow-Wp-Z9e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cUj-fa-JRK"/>
+                            <constraint firstItem="xow-Wp-Z9e" firstAttribute="top" secondItem="Qfm-XU-SqZ" secondAttribute="bottom" constant="8" id="cfe-ah-x5b"/>
+                            <constraint firstItem="Qfm-XU-SqZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kF4-lT-y0y"/>
+                            <constraint firstAttribute="trailing" secondItem="Qfm-XU-SqZ" secondAttribute="trailing" id="pwy-Le-wl2"/>
                             <constraint firstItem="ADK-bO-xni" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="vXY-K0-tqO"/>
                             <constraint firstItem="Qfm-XU-SqZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wB1-me-CQV"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="wB1-me-CQV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="J6R-g3-zEo"/>
                     <connections>

@@ -14,6 +14,9 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "Cover Image!"
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateImageView:", name: "ImageLoadedNotification", object: nil)
         // Do any additional setup after loading the view.
     }
