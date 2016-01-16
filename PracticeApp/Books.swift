@@ -13,6 +13,7 @@ class Books{
     let title : String
     let author : String
     var imageUrl : String? = nil
+    var amazonUrl : String? = nil
 
     class func booksFromJSON(json: Dictionary<String,AnyObject>) -> [Books] {
 
@@ -31,7 +32,9 @@ class Books{
 
                     let url = dict["book_image"] as! String
 
-                    books.append(Books.init(title: bookTitle, author: bookAuthor, url: url))
+                    let amzUrl = dict["amazon_product_url"] as! String
+
+                    books.append(Books.init(title: bookTitle, author: bookAuthor, url: url, amazon: amzUrl))
                     }
 
                 }
@@ -42,13 +45,17 @@ class Books{
         return books
     }
 
-    init(title: String, author: String, url: String?) {
+    init(title: String, author: String, url: String?, amazon: String?) {
 
         self.title = title
         self.author = author
 
         if let imgURL = url {
             self.imageUrl = imgURL
+        }
+
+        if let amzURL = amazon {
+            self.amazonUrl = amzURL
         }
 
     }
