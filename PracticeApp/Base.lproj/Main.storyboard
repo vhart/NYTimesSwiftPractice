@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Table View Controller-->
@@ -62,19 +63,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vLV-dx-m1o">
-                                <rect key="frame" x="0.0" y="30" width="600" height="570"/>
+                                <rect key="frame" x="0.0" y="30" width="600" height="510"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVa-fw-Yyb">
+                                <rect key="frame" x="0.0" y="560" width="600" height="80"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HE8-sk-gdP">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PULL ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke9-Vs-31Z">
+                                                <rect key="frame" x="248" y="3" width="105" height="34"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.13893255390000001" green="0.55022885099999996" blue="0.3956416519" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ke9-Vs-31Z" firstAttribute="centerX" secondItem="HE8-sk-gdP" secondAttribute="centerX" id="Fm6-4N-jxG"/>
+                                            <constraint firstAttribute="height" constant="40" id="Pa9-93-zzv"/>
+                                            <constraint firstItem="ke9-Vs-31Z" firstAttribute="centerY" secondItem="HE8-sk-gdP" secondAttribute="centerY" id="UPA-8D-J6J"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqW-45-tDG">
+                                        <rect key="frame" x="261" y="45" width="79" height="30"/>
+                                        <state key="normal" title="Description"/>
+                                        <connections>
+                                            <action selector="playDescription:" destination="nCA-4P-rTf" eventType="touchUpInside" id="pgV-Ae-GpJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.79048295449999995" green="0.79048295449999995" blue="0.79048295449999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="iqW-45-tDG" firstAttribute="centerX" secondItem="GVa-fw-Yyb" secondAttribute="centerX" id="3La-Ce-EI3"/>
+                                    <constraint firstAttribute="trailing" secondItem="HE8-sk-gdP" secondAttribute="trailing" id="61D-GX-sXL"/>
+                                    <constraint firstAttribute="height" constant="80" id="ev1-Sk-COk"/>
+                                    <constraint firstItem="HE8-sk-gdP" firstAttribute="top" secondItem="GVa-fw-Yyb" secondAttribute="top" id="f79-gk-ZGq"/>
+                                    <constraint firstAttribute="bottom" secondItem="iqW-45-tDG" secondAttribute="bottom" constant="5" id="hPE-T3-a4m"/>
+                                    <constraint firstItem="HE8-sk-gdP" firstAttribute="leading" secondItem="GVa-fw-Yyb" secondAttribute="leading" id="zis-EB-B7h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vLV-dx-m1o" firstAttribute="leading" secondItem="QOI-9x-k3S" secondAttribute="leading" id="0uX-UA-avq"/>
                             <constraint firstAttribute="trailing" secondItem="vLV-dx-m1o" secondAttribute="trailing" id="1UP-rw-Pmr"/>
+                            <constraint firstItem="GVa-fw-Yyb" firstAttribute="top" secondItem="vLV-dx-m1o" secondAttribute="bottom" constant="20" id="B23-ic-ONg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GVa-fw-Yyb" secondAttribute="trailing" id="C1u-CD-l3c"/>
+                            <constraint firstAttribute="trailing" secondItem="GVa-fw-Yyb" secondAttribute="trailing" id="KZe-G8-Jiv"/>
                             <constraint firstItem="vLV-dx-m1o" firstAttribute="top" secondItem="D1W-U0-VVx" secondAttribute="bottom" constant="10" id="OdY-nQ-O4t"/>
-                            <constraint firstItem="yMh-HO-rPY" firstAttribute="top" secondItem="vLV-dx-m1o" secondAttribute="bottom" id="YM7-p1-fp2"/>
+                            <constraint firstItem="GVa-fw-Yyb" firstAttribute="leading" secondItem="QOI-9x-k3S" secondAttribute="leadingMargin" id="RbP-sV-MmI"/>
+                            <constraint firstItem="GVa-fw-Yyb" firstAttribute="leading" secondItem="QOI-9x-k3S" secondAttribute="leading" id="UsV-Pe-A5F"/>
+                            <constraint firstItem="yMh-HO-rPY" firstAttribute="top" secondItem="vLV-dx-m1o" secondAttribute="bottom" constant="60" id="YM7-p1-fp2"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C1u-CD-l3c"/>
+                                <exclude reference="RbP-sV-MmI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="audioView" destination="GVa-fw-Yyb" id="hC2-DX-hVk"/>
                         <outlet property="imageView" destination="vLV-dx-m1o" id="Fbl-7J-o4e"/>
+                        <outlet property="pullBar" destination="HE8-sk-gdP" id="EgK-zG-br2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aeb-dF-VWM" userLabel="First Responder" sceneMemberID="firstResponder"/>

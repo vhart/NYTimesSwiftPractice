@@ -73,6 +73,7 @@ class NYTTableViewController: UITableViewController {
 
         let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         detailVC.amazonLink = book.amazonUrl
+        detailVC.book = book
         self.navigationController?.pushViewController(detailVC, animated: true)
         
     }
